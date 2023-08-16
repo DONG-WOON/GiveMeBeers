@@ -12,20 +12,18 @@ class BeerCollectionViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var beerList: [Beer] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    var beerList: [Beer] = []
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.collectionViewLayout = BeerCollectionViewLayout()
         collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         collectionView.delegate = self
         
-        getBeer(page: 1)
+        getBeer(page: page)
     }
     
     @IBAction func recommendButtonDidTapped(_ sender: UIBarButtonItem) {
@@ -35,11 +33,12 @@ class BeerCollectionViewController: UIViewController {
     }
     
     func getBeer(page: Int) {
-        let url = "https://api.punkapi.com/v2/beers"
+        let url = "https://api.punkapi.com/v2/beers?page=\(page)"
         AF.request(url).validate().responseDecodable(of: [Beer].self) { response in
             switch response.result {
             case .success(let beers):
-                self.beerList = beers
+                self.beerList.append(contentsOf: beers)
+                self.collectionView.reloadData()
             case .failure(let error):
                 print(error)
             }
@@ -66,7 +65,18 @@ extension BeerCollectionViewController: UICollectionViewDataSource, UICollection
         vc.beer = beerList[indexPath.item]
         present(vc, animated: true)
     }
-    
+}
+
+// MARK: Prefetch
+
+extension BeerCollectionViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if indexPaths.contains(where: { $0.item == beerList.count - 1 }) {
+            page += 1
+            print("🔥 ",#function)
+            getBeer(page: page)
+        }
+    }
 }
 
 class BeerCollectionViewLayout: UICollectionViewCompositionalLayout {

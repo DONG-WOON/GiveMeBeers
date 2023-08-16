@@ -29,7 +29,6 @@ final class BeerCollectionViewCell: UICollectionViewCell {
         
         imageView.image = nil
         nameLabel.text = nil
-        nameLabel.textColor = .black
     }
     
     func update(data: Beer) {
