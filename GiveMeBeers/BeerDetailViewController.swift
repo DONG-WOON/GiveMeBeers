@@ -7,7 +7,6 @@
 
 import UIKit
 import Kingfisher
-import Alamofire
 
 enum Scene {
     case detail
@@ -43,9 +42,8 @@ class BeerDetailViewController: UIViewController {
     }
     
     @objc private func recommend() {
-        let url = "https://api.punkapi.com/v2/beers/random"
-        AF.request(url).validate().responseDecodable(of: [Beer].self) { response in
-            switch response.result {
+        BeerApiManager.shared.request(type: [Beer].self, api: .getRandomBeer) { result in
+            switch result {
             case .success(let beers):
                 self.update(data: beers.first!)
             case .failure(let error):

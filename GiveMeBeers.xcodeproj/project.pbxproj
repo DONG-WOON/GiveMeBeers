@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72A975F82ABA60260021291C /* BeerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A975F72ABA60260021291C /* BeerAPI.swift */; };
+		72A975FA2ABA60770021291C /* BeerAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A975F92ABA60770021291C /* BeerAPIManager.swift */; };
 		72AFC2B72A822A3E0095D917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2B62A822A3E0095D917 /* AppDelegate.swift */; };
 		72AFC2B92A822A3E0095D917 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2B82A822A3E0095D917 /* SceneDelegate.swift */; };
 		72AFC2BB2A822A3E0095D917 /* BeerCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AFC2BA2A822A3E0095D917 /* BeerCollectionViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72A975F72ABA60260021291C /* BeerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPI.swift; sourceTree = "<group>"; };
+		72A975F92ABA60770021291C /* BeerAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerAPIManager.swift; sourceTree = "<group>"; };
 		72AFC2B32A822A3E0095D917 /* GiveMeBeers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiveMeBeers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72AFC2B62A822A3E0095D917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		72AFC2B82A822A3E0095D917 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 			children = (
 				72AFC2B62A822A3E0095D917 /* AppDelegate.swift */,
 				72AFC2B82A822A3E0095D917 /* SceneDelegate.swift */,
+				72A975F72ABA60260021291C /* BeerAPI.swift */,
+				72A975F92ABA60770021291C /* BeerAPIManager.swift */,
 				72AFC2BA2A822A3E0095D917 /* BeerCollectionViewController.swift */,
 				72AFC2D22A82807E0095D917 /* BeerCollectionViewCell.swift */,
 				72AFC2D42A8284CE0095D917 /* BeerDetailViewController.swift */,
@@ -161,10 +167,12 @@
 			files = (
 				72AFC2BB2A822A3E0095D917 /* BeerCollectionViewController.swift in Sources */,
 				72AFC2D52A8284CE0095D917 /* BeerDetailViewController.swift in Sources */,
+				72A975FA2ABA60770021291C /* BeerAPIManager.swift in Sources */,
 				72AFC2B72A822A3E0095D917 /* AppDelegate.swift in Sources */,
 				72AFC2D32A82807E0095D917 /* BeerCollectionViewCell.swift in Sources */,
 				72AFC2B92A822A3E0095D917 /* SceneDelegate.swift in Sources */,
 				72AFC2CB2A82759D0095D917 /* Beer.swift in Sources */,
+				72A975F82ABA60260021291C /* BeerAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

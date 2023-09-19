@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 class BeerCollectionViewController: UIViewController {
     
@@ -33,12 +32,10 @@ class BeerCollectionViewController: UIViewController {
     }
     
     func getBeer(page: Int) {
-        let url = "https://api.punkapi.com/v2/beers?page=\(page)"
-        AF.request(url).validate().responseDecodable(of: [Beer].self) { response in
-            switch response.result {
+        BeerApiManager.shared.request(type: [Beer].self, api: .getBeers(page)) { result in
+            switch result {
             case .success(let beers):
                 self.beerList.append(contentsOf: beers)
-                self.collectionView.reloadData()
             case .failure(let error):
                 print(error)
             }
